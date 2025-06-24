@@ -22,6 +22,8 @@ df['timestamp'] = [datetime(2023, 1, 1) + timedelta(minutes=i) for i in range(le
 df['location'] = [random.choice(['Hyderabad', 'Delhi', 'Mumbai', 'Bangalore']) for _ in range(len(df))]
 
 # Select the required columns
+df['type'] = df['type'].astype(str)
+
 df = df[['user_id', 'amount', 'type', 'timestamp', 'location']]
 
 # Convert to list of tuples
