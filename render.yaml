@@ -5,8 +5,9 @@ services:
     region: oregon
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python scripts/use_graphrag.py
-    pythonVersion: 3.10
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
     envVars:
       - key: OPENROUTER_API_KEY
         sync: true
+    runtime: python
+    pythonVersion: 3.10
