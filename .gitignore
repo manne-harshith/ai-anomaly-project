@@ -1,6 +1,21 @@
+# ✅ Ignore virtual environment
 venv/
+
+# ✅ Ignore Python bytecode and cache
 __pycache__/
-.env
 *.pyc
+*.pyo
+*.pyd
+
+# ✅ Ignore environment config
+.env
+
+# ✅ Ignore macOS system file
 .DS_Store
+
+# ✅ Ignore CSVs (but let me know if you need to keep specific ones)
 *.csv
+
+# ✅ Ignore editor folders (optional but helpful)
+.vscode/
+.idea/
