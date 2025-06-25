@@ -1,8 +1,18 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 from scripts.explain_anomalies import explain_anomaly
 from scripts.use_graphrag import get_suspicious_txns, format_for_llm, query_openrouter
 
 app = FastAPI()
+
+# ✅ Add CORS (non-blocking for frontend calls)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins (adjust in production)
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def root():

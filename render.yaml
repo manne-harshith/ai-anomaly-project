@@ -2,12 +2,22 @@ services:
   - type: web
     name: ai-anomaly-api
     env: python
-    region: oregon
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
+    buildCommand: ""
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
     envVars:
-      - key: OPENROUTER_API_KEY
-        sync: true
-    runtime: python
-    pythonVersion: 3.10
+      - key: OPENAI_API_KEY
+        value: "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"
+      - key: CLICKHOUSE_HOST
+        value: "mu1q0f2kws.asia-southeast1.gcp.clickhouse.cloud"
+      - key: CLICKHOUSE_USER
+        value: "default"
+      - key: CLICKHOUSE_PASSWORD
+        value: "sJJ5mmbL_8E.K"
+      - key: NEO4J_URI
+        value: "neo4j+s://2135db93.databases.neo4j.io"
+      - key: NEO4J_USERNAME
+        value: "neo4j"
+      - key: NEO4J_PASSWORD
+        value: "Q9uegzi8sGzWFwz7iXlckEqBq0RCLt-ZLiLKaC3U-2M"
+    plan: free
+    region: oregon
